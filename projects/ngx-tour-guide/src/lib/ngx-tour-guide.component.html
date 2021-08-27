@@ -1,0 +1,146 @@
+<div
+  ngxTourGuideOverlay
+  class="tour-guide--overlay"
+  [class.tour-active]="tourGuideService.currentStop$ | async"
+  [style]="clipPath$ | async"
+  (click)="$event.stopPropagation()"
+>
+  <div
+    ngxTourGuideContainer
+    ngxTourGuideSkip
+    *ngIf="!tourGuideService.tourGuide?.actions?.skipTour?.hidden"
+    class="tour-guide--skip tour-guide-container"
+    [style.top]="tourGuideService.tourGuide?.placements?.leaveTour?.top"
+    [style.right]="tourGuideService.tourGuide?.placements?.leaveTour?.right"
+    [style.bottom]="tourGuideService.tourGuide?.placements?.leaveTour?.bottom"
+    [style.left]="tourGuideService.tourGuide?.placements?.leaveTour?.left"
+  >
+    <button ngx-tour-guide-button (click)="tourGuideService.executeAction('skipTour')">
+      x
+      <i
+        [attr.uic-icon]="
+          tourGuideService.tourGuide?.actions?.skipTour?.icon || 'arrow-barrier'
+        "
+      ></i>
+      <label
+        *ngIf="
+          tourGuideService.tourGuide?.actions?.skipTour?.label as skipLabel
+        "
+      >
+        {{ skipLabel }}
+      </label>
+    </button>
+  </div>
+</div>
+
+<ng-template #stopTemplate let-stop>
+  <div
+    ngxTourGuideContainer
+    ngxTourGuideStop
+    class="tour-guide-stop tour-guide-container"
+    [style.max-width]="stop.maxWidth"
+    [@stopAnimation]="stop"
+  >
+    <label class="stop-title" *ngIf="stop.title"> {{ stop.title }}</label>
+
+    <div class="stop-content">
+      <ng-container *ngIf="stop.contentTemplate; else textContent">
+        <ng-container
+          *ngTemplateOutlet="
+            stop.contentTemplate;
+            context: { $implicit: stop.content }
+          "
+        >
+        </ng-container>
+      </ng-container>
+
+      <ng-template #textContent>
+        {{ stop.content }}
+      </ng-template>
+    </div>
+
+    <ng-container *ngIf="tourGuideService.progress$ | async as progress">
+      <button
+        *ngIf="
+          !progress.isFirst &&
+          !tourGuideService.tourGuide?.actions?.previousStop?.hidden
+        "
+        ngx-tour-guide-button
+        class="stop-previous"
+        (click)="tourGuideService.executeAction('previousStop')"
+      >
+        <
+        <i
+          [attr.uic-icon]="
+            tourGuideService.tourGuide?.actions?.previousStop?.icon ||
+            'arrow-left'
+          "
+        ></i>
+        <label
+          *ngIf="
+            tourGuideService.tourGuide?.actions?.previousStop
+              ?.label as previousStop
+          "
+        >
+          {{ previousStop }}
+        </label>
+      </button>
+
+      <label class="stop-counter">
+        <span index>{{ progress.index + 1 }}</span>
+        <span divider>/</span>
+        <span count>{{ progress.count }}</span>
+      </label>
+
+      <button
+        *ngIf="
+          !progress.isLast &&
+          !tourGuideService.tourGuide?.actions?.nextStop?.hidden &&
+          !stop?.action?.replacesNextOrFinish
+        "
+        ngx-tour-guide-button
+        class="stop-next"
+        (click)="tourGuideService.executeAction('nextStop')"
+      >
+        >
+        <i
+          [attr.uic-icon]="
+            tourGuideService.tourGuide?.actions?.nextStop?.icon || 'arrow-right'
+          "
+        ></i>
+        <label
+          *ngIf="
+            tourGuideService.tourGuide?.actions?.nextStop?.label as nextStop
+          "
+        >
+          {{ nextStop }}
+        </label>
+      </button>
+
+      <button
+        *ngIf="
+          progress.isLast &&
+          !tourGuideService.tourGuide?.actions?.finishTour?.hidden &&
+          !stop?.action?.replacesNextOrFinish
+        "
+        ngx-tour-guide-button
+        class="stop-finish"
+        (click)="tourGuideService.executeAction('finishTour')"
+      >
+        End
+        <i
+          [attr.uic-icon]="
+            tourGuideService.tourGuide?.actions?.finishTour?.icon || 'check'
+          "
+        ></i>
+        <label
+          *ngIf="
+            tourGuideService.tourGuide?.actions?.finishTour?.label as finishTour
+          "
+        >
+          {{ finishTour }}
+        </label>
+      </button>
+    </ng-container>
+  </div>
+</ng-template>

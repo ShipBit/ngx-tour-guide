@@ -1,0 +1,76 @@
+.tour-guide-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tour-guide--overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--ngx-tour-z-index, 1000);
+    backdrop-filter: var(--ngx-tour-guide-overlay__backdrop-filter, blur(200px));
+    background-color: var(--ngx-tour-guide-overlay__background, rgba(255, 255, 255, 0.15));
+    background-clip: padding-box;
+    clip-path: var(--clip-box);
+    transition: clip-path ease-out 0.2s;
+
+    &.tour-active {
+        display: block;
+    }
+}
+
+.tour-guide-stop {
+    display: grid;
+    row-gap: 1rem;
+    column-gap: 0.5rem;
+    grid-template-columns: 1fr auto auto minmax(min-content, 1fr);
+    grid-template-areas:
+        "title title title title"
+        "content content content content"
+        ". action1 action2 counter";
+
+    .stop-title {
+        grid-area: title;
+    }
+
+    .stop-content {
+        grid-area: content;
+        text-align: center;
+    }
+
+    .stop-counter {
+        grid-area: counter;
+        justify-self: flex-end;
+
+        [divider] {
+            padding: 0 0.5ch;
+        }
+    }
+
+    .stop-finish {
+        grid-area: action2;
+    }
+
+    .stop-next {
+        grid-area: action2;
+    }
+
+    .stop-previous {
+        grid-area: action1;
+    }
+}
+
+.tour-guide--skip {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+
+    i {
+        transform: rotate(90deg);
+    }
+}
