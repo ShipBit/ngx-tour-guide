@@ -7,6 +7,7 @@
     "build": "ng build",
     "build:lib": "ng build ngx-tour-guide",
     "watch": "ng build --watch --configuration development",
+    "deploy:pages": "ng deploy --base-href=/ngx-tour-guide/",
     "test": "ng test"
   },
   "private": true,

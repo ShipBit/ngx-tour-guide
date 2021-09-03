@@ -6,6 +6,9 @@ Angular module providing a framework for creating guided tours in your applicati
 
 This module emphasises on defining multiple tours throughout your application.
 
+## Demo
+[Demo page](https://shipbit.github.io/ngx-tour-guide/)
+
 ## Installation
 
 ### yarn
