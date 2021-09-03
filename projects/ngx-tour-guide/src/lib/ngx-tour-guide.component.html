@@ -15,21 +15,9 @@
     [style.bottom]="tourGuideService.tourGuide?.placements?.leaveTour?.bottom"
     [style.left]="tourGuideService.tourGuide?.placements?.leaveTour?.left"
   >
-    <button ngx-tour-guide-button (click)="tourGuideService.executeAction('skipTour')">
-      x
-      <i
-        [attr.uic-icon]="
-          tourGuideService.tourGuide?.actions?.skipTour?.icon || 'arrow-barrier'
-        "
-      ></i>
-      <label
-        *ngIf="
-          tourGuideService.tourGuide?.actions?.skipTour?.label as skipLabel
-        "
-      >
-        {{ skipLabel }}
-      </label>
-    </button>
+    <shipbit-ngx-tour-guide-action actionKey="skipTour">
+      <ng-content select="[ngxTourGuideSkipContent]"></ng-content>
+    </shipbit-ngx-tour-guide-action>
   </div>
 </div>
 
@@ -60,31 +48,12 @@
     </div>
 
     <ng-container *ngIf="tourGuideService.progress$ | async as progress">
-      <button
-        *ngIf="
-          !progress.isFirst &&
-          !tourGuideService.tourGuide?.actions?.previousStop?.hidden
-        "
-        ngx-tour-guide-button
-        class="stop-previous"
-        (click)="tourGuideService.executeAction('previousStop')"
+      <shipbit-ngx-tour-guide-action
+        *ngIf="!progress.isFirst"
+        actionKey="previousStop"
       >
-        <
-        <i
-          [attr.uic-icon]="
-            tourGuideService.tourGuide?.actions?.previousStop?.icon ||
-            'arrow-left'
-          "
-        ></i>
-        <label
-          *ngIf="
-            tourGuideService.tourGuide?.actions?.previousStop
-              ?.label as previousStop
-          "
-        >
-          {{ previousStop }}
-        </label>
-      </button>
+        <ng-content select="[ngxTourGuidePreviousContent]"></ng-content>
+      </shipbit-ngx-tour-guide-action>
 
       <label class="stop-counter">
         <span index>{{ progress.index + 1 }}</span>
@@ -92,55 +61,19 @@
         <span count>{{ progress.count }}</span>
       </label>
 
-      <button
-        *ngIf="
-          !progress.isLast &&
-          !tourGuideService.tourGuide?.actions?.nextStop?.hidden &&
-          !stop?.action?.replacesNextOrFinish
-        "
-        ngx-tour-guide-button
-        class="stop-next"
-        (click)="tourGuideService.executeAction('nextStop')"
+      <shipbit-ngx-tour-guide-action
+        *ngIf="!progress.isLast && !stop?.action?.replacesNextOrFinish"
+        actionKey="nextStop"
       >
-        >
-        <i
-          [attr.uic-icon]="
-            tourGuideService.tourGuide?.actions?.nextStop?.icon || 'arrow-right'
-          "
-        ></i>
-        <label
-          *ngIf="
-            tourGuideService.tourGuide?.actions?.nextStop?.label as nextStop
-          "
-        >
-          {{ nextStop }}
-        </label>
-      </button>
+        <ng-content select="[ngxTourGuideNextContent]"></ng-content>
+      </shipbit-ngx-tour-guide-action>
 
-      <button
-        *ngIf="
-          progress.isLast &&
-          !tourGuideService.tourGuide?.actions?.finishTour?.hidden &&
-          !stop?.action?.replacesNextOrFinish
-        "
-        ngx-tour-guide-button
-        class="stop-finish"
-        (click)="tourGuideService.executeAction('finishTour')"
+      <shipbit-ngx-tour-guide-action
+        *ngIf="progress.isLast && !stop?.action?.replacesNextOrFinish"
+        actionKey="finishTour"
       >
-        End
-        <i
-          [attr.uic-icon]="
-            tourGuideService.tourGuide?.actions?.finishTour?.icon || 'check'
-          "
-        ></i>
-        <label
-          *ngIf="
-            tourGuideService.tourGuide?.actions?.finishTour?.label as finishTour
-          "
-        >
-          {{ finishTour }}
-        </label>
-      </button>
+        <ng-content select="[ngxTourGuideFinishContent]"></ng-content>
+      </shipbit-ngx-tour-guide-action>
     </ng-container>
   </div>
 </ng-template>

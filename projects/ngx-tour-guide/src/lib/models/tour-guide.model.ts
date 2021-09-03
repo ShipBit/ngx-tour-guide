@@ -1,5 +1,5 @@
 import { TourGuideActions } from './tour-guide-actions.model';
-import { TourGuidePlacements } from './tour-guide-placemenest.model';
+import { TourGuidePlacements } from './tour-guide-placements.model';
 import { TourGuideStop } from './tour-guide-stop.model';
 
 /**

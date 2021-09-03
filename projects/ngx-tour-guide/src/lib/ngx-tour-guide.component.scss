@@ -52,16 +52,12 @@
         }
     }
 
-    .stop-finish {
+    shipbit-ngx-tour-guide-action {
         grid-area: action2;
-    }
 
-    .stop-next {
-        grid-area: action2;
-    }
-
-    .stop-previous {
-        grid-area: action1;
+        &[actionKey="previousStop"] {
+            grid-area: action1;
+        }
     }
 }
 

@@ -1,7 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Overlay } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
-import { Component, HostBinding, OnDestroy, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, OnDestroy, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 
 import { fromEvent, merge, NEVER, Observable, of, Subject } from 'rxjs';
 import {
@@ -35,6 +35,7 @@ interface ScanState {
     selector: 'shipbit-ngx-tour-guide',
     templateUrl: 'ngx-tour-guide.component.html',
     styleUrls: ['ngx-tour-guide.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
     animations: [
         trigger('stopAnimation', [
             transition(':enter', [style({ opacity: 0 }), animate('.5s ease-out', style({ opacity: 1 }))]),
@@ -62,14 +63,14 @@ export class NgxTourGuideComponent implements OnDestroy {
     /**
      * Set host class
      */
-    @HostBinding('class') hostClass = 'pl-tour-guide';
+    @HostBinding('class') hostClass = 'ngx-tour-guide';
 
     /**
      * The cdkOverlay reference used to position the stop template
      */
     private overlayRef = this.overlay.create({
         hasBackdrop: false,
-        panelClass: 'pl-tour-guide'
+        panelClass: 'ngx-tour-guide'
     });
 
     /**

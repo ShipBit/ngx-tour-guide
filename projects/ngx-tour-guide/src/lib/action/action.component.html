@@ -1,0 +1,10 @@
+<button
+  [hidden]="action?.hidden"
+  [attr.ngx-tour-guide-button]="actionKey"
+  (click)="tourGuideService.executeAction(actionKey)"
+>
+  <ng-content> </ng-content>
+  <label *ngIf="action?.label as label">
+    {{ label }}
+  </label>
+</button>
