@@ -17,7 +17,6 @@ jobs:
           node-version: 16
       - run: npm ci
       - run: npm run build:lib
-      - run: npm run publish:readme
 
   publish-npm:
     needs: build
