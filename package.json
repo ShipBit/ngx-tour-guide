@@ -5,11 +5,11 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:lib": "ng build ngx-tour-guide && cp \"./readme.md\" \"./dist/ngx-tour-guide\"",
+    "build:lib": "ng build ngx-tour-guide",
     "watch": "ng build --watch --configuration development",
     "deploy:pages": "ng deploy --base-href=/ngx-tour-guide/",
     "publish:lib":"pushd \"dist/ngx-tour-guide\" && npm publish && popd",
-    "publish": "npm run build:lib && npm run publish:readme && npm run publish:lib",
+    "publish": "npm run build:lib && npm run publish:lib",
     "test": "ng test"
   },
   "private": true,
