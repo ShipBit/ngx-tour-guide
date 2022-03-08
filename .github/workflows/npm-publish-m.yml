@@ -15,4 +15,7 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
-      - run: npm run publish
+      - run: npm run build:lib
+      - run: cd dist/ngx-tour-guide && npm publish
+        
+          
