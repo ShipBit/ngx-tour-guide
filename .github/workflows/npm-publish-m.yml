@@ -17,5 +17,6 @@ jobs:
       - run: npm ci
       - run: npm run build:lib
       - run: cd dist/ngx-tour-guide && npm publish
-        
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
           
