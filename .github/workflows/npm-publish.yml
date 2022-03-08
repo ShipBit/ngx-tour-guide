@@ -21,4 +21,3 @@ jobs:
       - run: git push "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" "${{ github.head_ref }}"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
