@@ -896,8 +896,38 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <shipbit-ngx-tour-guide>
-  <span class="material-icons md-18" ngxTourGuidePreviousContent >arrow_back</span>
-  <span class="material-icons md-18" ngxTourGuideNextContent >arrow_forward</span>
-  <span class="material-icons md-18" ngxTourGuideFinishContent >check</span>
-  <span class="material-icons md-18" ngxTourGuideSkipContent >close</span>
+  <button
+    ngxTourGuidePreviousContent
+    class="ngx-tourguide--button"
+    (click)="this.tourGuideService.executeAction('previousStop')"
+  >
+    <span class="material-icons md-18">arrow_back</span>
+    <label>Zurück</label>
+  </button>
+
+  <button
+    ngxTourGuideNextContent
+    class="ngx-tourguide--button"
+    (click)="this.tourGuideService.executeAction('nextStop')"
+  >
+    <span class="material-icons md-18">arrow_forward</span>
+    <label>Weiter</label>
+  </button>
+
+  <button
+    ngxTourGuideFinishContent
+    class="ngx-tourguide--button"
+    (click)="this.tourGuideService.executeAction('finishTour')"
+  >
+    <span class="material-icons md-18">check</span>
+    <label>Aschließen</label>
+  </button>
+
+  <button
+    ngxTourGuideSkipContent
+    class="ngx-tourguide--button"
+    (click)="this.tourGuideService.executeAction('skipTour')"
+  >
+    <span class="material-icons md-18">close</span>
+  </button>
 </shipbit-ngx-tour-guide>
