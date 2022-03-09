@@ -1,74 +1,76 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/cdk/overlay-prebuilt.css";
 
+.ngx-tourguide--button {
+  color: #7b8ab8;
+  background-color: #d9e3f1;
+  border: none;
+  border-radius: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+
+  &:focus {
+    outline: none;
+    border: 1px solid #296abd;
+  }
+
+  &:hover,
+  &:active {
+    color: #fff;
+    background-color: #2c71ca;
+  }
+
+  &:active {
+    border-color: transparent;
+    box-shadow: inset 2px 3px 6px rgb(0 0 0 / 20%),
+      inset -3px -2px 6px rgb(255 255 255 / 20%);
+  }
+}
+
 .ngx-tour-guide {
-    .tour-guide-container[ngxTourGuidecontainer] {
-        padding: 1rem;
-        border: none;
-        border-radius: 0.5rem;
-        background: #f1f3f7;
-        color: #7b8ab8;
-        box-shadow: 0px 0px 25px rgb(255 255 255 / 40%);
+  .tour-guide-container[ngxTourGuidecontainer] {
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: #f1f3f7;
+    color: #7b8ab8;
+    box-shadow: 0px 0px 25px rgb(255 255 255 / 40%);
+  }
+
+  .tour-guide--overlay[ngxTourGuideOverlay] {
+    background-color: hsla(189deg, 62%, 4%, 0.75);
+    backdrop-filter: none;
+  }
+
+  .tour-guide-stop[ngxTourGuideStop] {
+    .stop-title {
+      color: #8e7bbe;
+      text-transform: uppercase;
+      text-shadow: 0px 0px 4px #7bacbe;
+      padding-bottom: 0.25rem;
+      position: relative;
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+
+      &::after {
+        content: "";
+        height: 1px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #8e7bbe;
+      }
     }
 
-    .tour-guide--overlay[ngxTourGuideOverlay] {
-        background-color: hsla(189deg, 62%, 4%, 0.75);
-        backdrop-filter: none;
+    .stop-counter {
+      color: #95a1ca;
+      [index] {
+        color: #8e7bbe;
+      }
     }
-
-    .tour-guide-stop[ngxTourGuideStop] {
-        .stop-title {
-            color: #8E7BBE;
-            text-transform: uppercase;
-            text-shadow: 0px 0px 4px #7bacbe;
-            padding-bottom: .25rem;
-            position: relative;
-            font-size: 1.5rem;
-            font-weight: 400;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-
-            &::after {
-                content: "";
-                height: 1px;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background: #8E7BBE;
-            }
-        }
-
-        .stop-counter {
-            color: #95a1ca;
-            [index] {
-                color: #8E7BBE;
-            }
-        }
-    }
-
-    button {
-        color: #7b8ab8;
-        background-color: #d9e3f1;
-        border: none;
-        border-radius: .5rem 0;
-        display: flex;
-        align-items: center;
-
-        &:focus {
-            outline: none;
-            border: 1px solid #296abd;
-        }
-
-        &:hover,
-        &:active {
-            color: #fff;
-            background-color: #2c71ca;
-        }
-
-        &:active {
-            border-color: transparent;
-            box-shadow: inset 2px 3px 6px rgb(0 0 0 / 20%), inset -3px -2px 6px rgb(255 255 255 / 20%);
-        }
-    }
+  }
 }

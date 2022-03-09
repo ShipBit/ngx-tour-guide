@@ -9,7 +9,7 @@ import { NgxTourGuideService } from '@shipbit/ngx-tour-guide';
 export class AppComponent {
   title = 'showcase';
 
-  constructor(tourGuideService: NgxTourGuideService) {
+  constructor(public tourGuideService: NgxTourGuideService) {
     tourGuideService.start({
       stops: [
         {
@@ -25,14 +25,24 @@ export class AppComponent {
         {
           element: '.card-container',
           title: 'Find resources here',
-          content: 'These are resources helping you to get started with angular development.'
-        }
+          content:
+            'These are resources helping you to get started with angular development.',
+        },
       ],
       actions: {
-        finishTour: { label: 'Abschließen'},
-        previousStop: { label: 'Zurück'},
-        nextStop: { label: 'Weiter'}
-      }
+        previousStop: {
+          label: 'Zurück',
+          buttonClasses: ['ngx-tourguide--button'],
+        },
+        nextStop: {
+          label: 'Weiter',
+          buttonClasses: ['ngx-tourguide--button'],
+        },
+        finishTour: {
+          label: 'Abschließen',
+          buttonClasses: ['ngx-tourguide--button'],
+        },
+      },
     });
   }
 }
