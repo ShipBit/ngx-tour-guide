@@ -30,10 +30,19 @@ export class AppComponent {
         },
       ],
       actions: {
-        finishTour: { label: 'Abschließen'},
-        previousStop: { label: 'Zurück'},
-        nextStop: { label: 'Weiter'}
-      }
+        previousStop: {
+          label: 'Zurück',
+          buttonClasses: ['ngx-tourguide--button'],
+        },
+        nextStop: {
+          label: 'Weiter',
+          buttonClasses: ['ngx-tourguide--button'],
+        },
+        finishTour: {
+          label: 'Abschließen',
+          buttonClasses: ['ngx-tourguide--button'],
+        },
+      },
     });
   }
 }

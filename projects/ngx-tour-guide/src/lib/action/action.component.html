@@ -3,7 +3,7 @@
 
   <button
     *ngIf="!customActionContent.children.length && action?.label"
-  [attr.ngx-tour-guide-button]="actionKey"
+    [class]="action?.buttonClasses"
     (click)="tourGuideService.executeAction(actionKey)"
   >
     <label>{{ action?.label }}</label>

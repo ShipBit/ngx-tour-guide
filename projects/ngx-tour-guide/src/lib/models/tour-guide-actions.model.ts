@@ -28,9 +28,9 @@ export interface TourGuideAction {
     label?: string;
 
     /**
-     * Optionl change of the actions icon
+     * Optional classes that will be applied for on the button
      */
-    icon?: string;
+    buttonClasses?: string[];
 
     /**
      * Callback before the action is executed
