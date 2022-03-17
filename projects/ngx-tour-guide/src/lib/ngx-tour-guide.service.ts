@@ -89,6 +89,14 @@ export class NgxTourGuideService {
   }
 
   /**
+   * Checks whether a tour with given name is registered
+   * @param name tour name
+   */
+  public contains(name: string) {
+    return !!this.registry[name];
+  }
+
+  /**
    * Start a tour.
    * This will throw if another tour is currently running.
    */
