@@ -149,6 +149,24 @@ public startTour(model: WorkflowItem){
 }
 ```
 
+### Use html content (make sure to sanitize)
+
+_component.ts_
+
+```ts
+public startTour(model: WorkflowItem){
+    tourGuideService.start({
+        stops: [
+            {
+            element: "#detailArea",
+            title: "This is the detail area",
+            content: "This is <strong>html</strong> for templateless text styling.<br> Make sure to sanitize your html if it originates from <em>untrusted sources</em>",
+            },
+        ],
+    });
+}
+```
+
 ### Customize Actions
 
 YOu can provide content for any action button, in this case material icons
