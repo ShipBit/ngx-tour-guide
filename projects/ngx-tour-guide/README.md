@@ -7,6 +7,7 @@ Angular module providing a framework for creating guided tours in your applicati
 This module emphasises on defining multiple tours throughout your application.
 
 ## Demo
+
 [Demo page](https://shipbit.github.io/ngx-tour-guide/)
 
 ## Installation
@@ -143,6 +144,24 @@ public startTour(model: WorkflowItem){
             title: "Here you can submit",
             content: model,
             contentTemplate: this.customTourStop,
+            },
+        ],
+    });
+}
+```
+
+### Use html content (make sure to sanitize)
+
+_component.ts_
+
+```ts
+public startTour(model: WorkflowItem){
+    tourGuideService.start({
+        stops: [
+            {
+            element: "#detailArea",
+            title: "This is the detail area",
+            content: "This is <strong>html</strong> for templateless text styling.<br> Make sure to sanitize your html if it originates from <em>untrusted sources</em>",
             },
         ],
     });
