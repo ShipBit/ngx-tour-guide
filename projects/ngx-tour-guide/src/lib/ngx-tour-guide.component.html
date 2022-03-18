@@ -43,7 +43,8 @@
       </ng-container>
 
       <ng-template #textContent>
-        {{ stop.content }}
+        <span *ngIf="stop.useHtml" [innerText]="stop.content"></span>
+        <span *ngIf="!stop.useHtml">{{ stop.content }}</span>
       </ng-template>
     </div>
 
