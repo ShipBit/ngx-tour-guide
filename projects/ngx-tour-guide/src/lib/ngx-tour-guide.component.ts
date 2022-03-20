@@ -1,7 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Overlay } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
-import { ChangeDetectionStrategy, Component, HostBinding, OnDestroy, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, OnDestroy, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 
 import { fromEvent, merge, NEVER, Observable, of, Subject } from 'rxjs';
 import {
@@ -36,6 +36,7 @@ interface ScanState {
     templateUrl: 'ngx-tour-guide.component.html',
     styleUrls: ['ngx-tour-guide.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
     animations: [
         trigger('stopAnimation', [
             transition(':enter', [style({ opacity: 0 }), animate('.5s ease-out', style({ opacity: 1 }))]),

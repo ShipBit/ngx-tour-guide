@@ -1,15 +1,12 @@
 <div
-  ngxTourGuideOverlay
   class="tour-guide--overlay"
   [class.tour-active]="tourGuideService.currentStop$ | async"
   [style]="clipPath$ | async"
   (click)="$event.stopPropagation()"
 >
   <div
-    ngxTourGuideContainer
-    ngxTourGuideSkip
     *ngIf="!tourGuideService.tourGuide?.actions?.skipTour?.hidden"
-    class="tour-guide--skip tour-guide-container"
+    class="tour-guide--skip tour-guide--container"
     [style.top]="tourGuideService.tourGuide?.placements?.leaveTour?.top"
     [style.right]="tourGuideService.tourGuide?.placements?.leaveTour?.right"
     [style.bottom]="tourGuideService.tourGuide?.placements?.leaveTour?.bottom"
@@ -25,7 +22,7 @@
   <div
     ngxTourGuideContainer
     ngxTourGuideStop
-    class="tour-guide-stop tour-guide-container"
+    class="tour-guide--stop tour-guide--container"
     [style.max-width]="stop.maxWidth"
     [@stopAnimation]="stop"
   >
@@ -43,7 +40,7 @@
       </ng-container>
 
       <ng-template #textContent>
-        <span *ngIf="stop.useHtml" [innerText]="stop.content"></span>
+        <span class=""inner-text *ngIf="stop.useHtml" [innerHTML]="stop.content"></span>
         <span *ngIf="!stop.useHtml">{{ stop.content }}</span>
       </ng-template>
     </div>

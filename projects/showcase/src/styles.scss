@@ -25,23 +25,20 @@ h2 {
 }
 
 .ngx-tourguide--button {
-  color: #7b8ab8;
-  background-color: #d9e3f1;
-  border: none;
-  border-radius: 0.5rem 0;
-  display: flex;
-  align-items: center;
-  padding: 0.25rem;
+  color: var(--c-text-accent);
+  background-color: var(--c-secondary-accent);
+  border: 1px solid transparent;
+  padding: 0.25rem 0.5rem;
 
-  &:focus {
+  &:focus-visible {
     outline: none;
-    border: 1px solid #296abd;
+    border-color: #296abd;
   }
 
   &:hover,
   &:active {
     color: #fff;
-    background-color: #2c71ca;
+    background-color: var(--c-secondary);
   }
 
   &:active {
@@ -52,25 +49,25 @@ h2 {
 }
 
 .ngx-tour-guide {
-  .tour-guide-container[ngxTourGuidecontainer] {
+  .tour-guide--container {
     padding: 1rem;
     border: none;
-    border-radius: 0.5rem;
-    background: #f1f3f7;
-    color: #7b8ab8;
-    box-shadow: 0px 0px 25px rgb(255 255 255 / 40%);
+    border-radius: 0 0.5rem;
+    background: var(--c-background-accent);
+    &:not(.tour-guide--skip) {
+      box-shadow: 0px 0px 25px var(--c-background);
+    }
   }
 
-  .tour-guide--overlay[ngxTourGuideOverlay] {
-    background-color: hsla(189deg, 62%, 4%, 0.75);
+  .tour-guide--overlay {
+    background-color: rgba(4, 15, 17, 0.75);
     backdrop-filter: none;
   }
 
-  .tour-guide-stop[ngxTourGuideStop] {
+  .tour-guide--stop {
     .stop-title {
-      color: #8e7bbe;
+      color: var(--c-secondary);
       text-transform: uppercase;
-      text-shadow: 0px 0px 4px #7bacbe;
       padding-bottom: 0.25rem;
       position: relative;
       font-size: 1.5rem;
@@ -85,14 +82,14 @@ h2 {
         bottom: 0;
         left: 0;
         right: 0;
-        background: #8e7bbe;
+        background: var(--c-secondary-accent);
       }
     }
 
     .stop-counter {
-      color: #95a1ca;
+      color: var(--c-text);
       [index] {
-        color: #8e7bbe;
+        color: var(--c-text-accent);
       }
     }
   }

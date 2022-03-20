@@ -1,4 +1,4 @@
-.tour-guide-container {
+.tour-guide--container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,7 +24,7 @@
     }
 }
 
-.tour-guide-stop {
+.tour-guide--stop {
     display: grid;
     row-gap: 1rem;
     column-gap: 0.5rem;
