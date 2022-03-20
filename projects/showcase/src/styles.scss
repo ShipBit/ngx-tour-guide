@@ -1,6 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/cdk/overlay-prebuilt.css";
 
+:root {
+  --c-background: #eae7dc;
+  --c-background-accent: #d8c3a5;
+  --c-text: #8e8d8a;
+  --c-text-accent: #000;
+  --c-secondary: #e98074;
+  --c-secondary-accent: #e85a4f;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: var(--c-background);
+  color: var(--c-text);
+}
+
+h1 {
+  color: var(--c-secondary-accent);
+}
+
+h2 {
+  color: var(--c-secondary);
+}
+
 .ngx-tourguide--button {
   color: #7b8ab8;
   background-color: #d9e3f1;

@@ -1,0 +1,16 @@
+:host {
+  display: inline-block;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  vertical-align: text-top;
+}
+
+code {
+  border-radius: 0.5rem;
+  width: min-content;
+  box-shadow: 0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+pre {
+  margin: 0;
+}

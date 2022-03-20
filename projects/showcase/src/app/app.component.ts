@@ -10,39 +10,10 @@ export class AppComponent {
   title = 'showcase';
 
   constructor(public tourGuideService: NgxTourGuideService) {
-    tourGuideService.start({
-      stops: [
-        {
-          element: '.toolbar',
-          title: 'This is a Toolbar!',
-          content: 'This is the default toolbar created with Angular CLI',
-        },
-        {
-          element: '.content',
-          title: 'This is the Content!',
-          content: 'This is the default content created with Angular CLI',
-        },
-        {
-          element: '.card-container',
-          title: 'Find resources here',
-          content:
-            'These are resources helping you to get started with angular development.',
-        },
-      ],
-      actions: {
-        previousStop: {
-          label: 'Zurück',
-          buttonClasses: ['ngx-tourguide--button'],
-        },
-        nextStop: {
-          label: 'Weiter',
-          buttonClasses: ['ngx-tourguide--button'],
-        },
-        finishTour: {
-          label: 'Abschließen',
-          buttonClasses: ['ngx-tourguide--button'],
-        },
-      },
-    });
+    this.startTour();
+  }
+
+  public startTour() {
+    this.tourGuideService.start('demo');
   }
 }

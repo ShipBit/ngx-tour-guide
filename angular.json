@@ -62,7 +62,8 @@
               "projects/showcase/src/assets"
             ],
             "styles": [
-              "projects/showcase/src/styles.scss"
+              "projects/showcase/src/styles.scss",
+              "node_modules/highlight.js/styles/github.css"
             ],
             "scripts": []
           },
