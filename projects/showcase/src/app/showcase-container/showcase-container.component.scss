@@ -1,11 +1,13 @@
 :host {
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
   padding: 1rem;
   border-radius: 0.5rem;
   vertical-align: text-top;
 }
 
 code {
+  background-color: var(--c-background-light);
   border-radius: 0.5rem;
   width: min-content;
   box-shadow: 0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.2);

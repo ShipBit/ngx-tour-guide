@@ -1,6 +1,52 @@
-:host{
+:host {
+}
+
+main {
+  padding: 0 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1rem;
+}
+
+nav {
+  padding: 0 1rem;
+  display: flex;
+  gap: 1rem;
+  background-color: var(--c-background);
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+    rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.1) 0px 8px 10px -6px;
+
+  h1 {
+    margin: 1rem 0;
+    font-weight: 800;
+  }
+
+  button {
+    font-size: 18px;
+  }
+}
+
+.section {
+  border-width: 0 0 1px 0;
+  border-color: rgb(55 65 81);
+  border-style: solid;
+  line-height: 1;
+  overflow: visible;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+
+  &:after {
+    background-color: transparent;
+    background-image: url(https://alqxoepsjp.cloudimg.io/v7/_shipbit_/logo-gray.png?w=24);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    content: "";
+    display: inline;
+    padding: 1.5rem;
+    position: absolute;
+    bottom: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }

@@ -2,30 +2,46 @@
 @import "~@angular/cdk/overlay-prebuilt.css";
 
 :root {
-  --c-background: #eae7dc;
-  --c-background-accent: #d8c3a5;
-  --c-text: #8e8d8a;
+  --c-background: rgb(17, 24, 39);
+  --c-background-light: rgb(194, 206, 235);
+  --c-background-accent: rgb(31, 41, 55);
+  --c-text: rgb(209, 213, 219);
   --c-text-accent: #000;
   --c-secondary: #e98074;
-  --c-secondary-accent: #e85a4f;
+  --c-secondary-accent: rgb(232, 23, 72);
 }
 
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+  font-family: Barlow, sans-serif;
   background-color: var(--c-background);
   color: var(--c-text);
 }
 
+h1,
+h2 {
+  text-transform: uppercase;
+  font-family: Barlow, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+}
+
 h1 {
-  color: var(--c-secondary-accent);
+  font-size: 2.5rem;
 }
 
 h2 {
-  color: var(--c-secondary);
+  font-size: 2rem;
+  width: 100%;
+  color:var(--c-secondary-accent);
 }
 
 .ngx-tourguide--button {
-  color: var(--c-text-accent);
+  cursor: pointer;
+  font-family: Barlow, sans-serif;
+  font-weight: 600;
+  color: var(--c-text);
   background-color: var(--c-secondary-accent);
   border: 1px solid transparent;
   padding: 0.25rem 0.5rem;
@@ -55,7 +71,9 @@ h2 {
     border-radius: 0 0.5rem;
     background: var(--c-background-accent);
     &:not(.tour-guide--skip) {
-      box-shadow: 0px 0px 25px var(--c-background);
+      box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+        rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+        rgba(0, 0, 0, 0.1) 0px 8px 10px -6px;
     }
   }
 
@@ -89,7 +107,7 @@ h2 {
     .stop-counter {
       color: var(--c-text);
       [index] {
-        color: var(--c-text-accent);
+        color: var(--c-secondary-accent);
       }
     }
   }

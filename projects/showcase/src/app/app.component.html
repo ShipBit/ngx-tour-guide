@@ -1,10 +1,43 @@
 <nav>
-  <h1>Getting Started</h1>
-  <button class="ngx-tourguide--button restart" (click)="startTour()">Restart the tour</button>
+  <h1>Ngx TourGuide</h1>
+  <button class="ngx-tourguide--button restart" (click)="startTour()">
+    Restart the tour
+  </button>
 </nav>
-<showcase-setup></showcase-setup>
-<showcase-register></showcase-register>
-<showcase-html-content></showcase-html-content>
-<showcase-customize-actions></showcase-customize-actions>
-<showcase-customize-stops></showcase-customize-stops>
-<shipbit-ngx-tour-guide></shipbit-ngx-tour-guide>
+<main>
+  <showcase-setup class="section"></showcase-setup>
+  <showcase-register class="section"></showcase-register>
+  <showcase-html-content class="section"></showcase-html-content>
+  <showcase-customize-actions class="section"></showcase-customize-actions>
+  <showcase-customize-stops class="section"></showcase-customize-stops>
+  <shipbit-ngx-tour-guide>
+    <button
+      class="ngx-tourguide--button"
+      ngxTourGuidePreviousContent
+      (click)="tourGuideService.executeAction('previousStop')"
+    >
+      <span class="material-icons md-18">arrow_back</span>
+    </button>
+    <button
+      class="ngx-tourguide--button"
+      ngxTourGuideNextContent
+      (click)="tourGuideService.executeAction('nextStop')"
+    >
+      <span class="material-icons md-18">arrow_forward</span>
+    </button>
+    <button
+      class="ngx-tourguide--button"
+      ngxTourGuideFinishContent
+      (click)="tourGuideService.executeAction('finishTour')"
+    >
+      <span class="material-icons md-18">check</span>
+    </button>
+    <button
+      class="ngx-tourguide--button"
+      ngxTourGuideSkipContent
+      (click)="tourGuideService.executeAction('skipTour')"
+    >
+      <span class="material-icons md-18">close</span>
+    </button>
+  </shipbit-ngx-tour-guide>
+</main>

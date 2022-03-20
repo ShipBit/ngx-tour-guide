@@ -52,6 +52,4 @@ export interface TourGuideActions {
 
     finishTour?: TourGuideAction;
 
-    exportTour?: TourGuideAction;
-
 }
