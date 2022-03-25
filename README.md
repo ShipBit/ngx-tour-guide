@@ -7,6 +7,7 @@ Angular module providing a framework for creating guided tours in your applicati
 This module emphasises on defining multiple tours throughout your application.
 
 ## Demo
+
 [Demo page](https://shipbit.github.io/ngx-tour-guide/)
 
 ## Installation
@@ -22,6 +23,12 @@ yarn add @shipbit/ngx-tour-guide
 ```bash
 npm i --save @shipbit/ngx-tour-guide
 ```
+
+### Angular CDK
+
+The package is dependant on [Angular CDK overlay](https://material.angular.io/cdk/overlay/overview) make sure to inlcude the prebuilt css if you are not already using angular material themes.
+
+The package uses [Angular animations](https://angular.io/guide/animations) for disabling these (e.g. testing) import the [NoopAnimationsModule](https://angular.io/api/platform-browser/animations/NoopAnimationsModule)
 
 ## Usage
 
@@ -235,3 +242,30 @@ const tourGuide: TourGuide = {
   ],
 };
 ```
+
+## Styling
+
+The base comes without any color information besides the overlay background.
+
+### css variables
+
+These variables can be used to configure the overlay
+
+| variable                                     | default                   | description                                             |
+| -------------------------------------------- | ------------------------- | ------------------------------------------------------- |
+| --ngx-tour-guid\_\_z-index                   | 1000                      | The zindex the tour guide overlay will have in your app |
+| --ngx-tour-guide\_\_overlay-backdrop-filter  | blur(200px)               | The filter the overlay uses on the background           |
+| --ngx-tour-guide\_\_overlay-background-color | rgba(255, 255, 255, 0.15) | The color of the overlay                                |
+
+#### css classes
+
+These classes can be used to directly style the corresponding element
+| selector | description |
+|---|---|
+|.tour-guide-container| targets the container of the skip button (if used) as well as every stop message |
+|.tour-guide--skip|targets the container of the skip button specificly|
+|.tour-guide--overlay|targets the overlay over your app|
+|.tour-guide-stop| targets the layout of a stop: grid layout |
+|.tour-guide-stop.stop-title|targets the title of a stop|
+|.tour-guide-stop.stop-content|targets the content of a stop|
+|.tour-guide-stop.stop-counter|targets the counter of a stop|

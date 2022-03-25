@@ -12,9 +12,9 @@
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: var(--ngx-tour-z-index, 1000);
-    backdrop-filter: var(--ngx-tour-guide-overlay__backdrop-filter, blur(200px));
-    background-color: var(--ngx-tour-guide-overlay__background, rgba(255, 255, 255, 0.15));
+    z-index: var(--ngx-tour-guid__z-index, 1000);
+    backdrop-filter: var(--ngx-tour-guide__overlay-backdrop-filter, blur(200px));
+    background-color: var(--ngx-tour-guide__overlay-background-color, rgba(255, 255, 255, 0.15));
     background-clip: padding-box;
     clip-path: var(--clip-box);
     transition: clip-path ease-out 0.2s;
