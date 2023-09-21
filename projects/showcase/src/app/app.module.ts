@@ -15,6 +15,7 @@ import { HtmlContentComponent } from './showcases/html-content/html-content.comp
 import { CustomizeActionsComponent } from './showcases/customize-actions/customize-actions.component';
 import { CustomizeStopsComponent } from './showcases/customize-stops/customize-stops.component';
 import { ShowcaseContainerComponent } from './showcase-container/showcase-container.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ShowcaseContainerComponent } from './showcase-container/showcase-contai
     NgxTourGuideModule.forRoot(),
   ],
   providers: [
+    provideHttpClient(),
     {
       provide: HIGHLIGHT_OPTIONS,
       useValue: {
