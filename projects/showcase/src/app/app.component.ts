@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'showcase';
 
   constructor(public tourGuideService: NgxTourGuideService) {
-    // this.startTour();
+    this.startTour();
   }
 
   public startTour() {
