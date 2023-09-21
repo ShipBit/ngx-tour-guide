@@ -1,6 +1,6 @@
 {
   "name": "@shipbit/ngx-tour-guide",
-  "version": "1.0.4",
+  "version": "3.0.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -22,10 +22,10 @@
     "cdk"
   ],
   "peerDependencies": {
-    "@angular/common": "^13.2.5",
-    "@angular/core": "^13.2.5",
-    "@angular/animations": "^13.2.5",
-    "@angular/cdk": "^13.2.5"
+    "@angular/common": "^14.3.0",
+    "@angular/core": "^14.3.0",
+    "@angular/animations": "^14.3.0",
+    "@angular/cdk": "^14.2.0"
   },
   "dependencies": {
     "tslib": "^2.3.1"
