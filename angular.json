@@ -143,5 +143,7 @@
       }
     }
   },
-  "defaultProject": "showcase"
+  "cli": {
+    "analytics": false
+  }
 }
