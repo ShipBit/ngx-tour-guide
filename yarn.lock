@@ -152,17 +152,17 @@
     "ora" "5.4.1"
     "rxjs" "7.8.1"
 
-"@angular/animations@^15.2.9", "@angular/animations@^16.2.6", "@angular/animations@16.2.6":
+"@angular/animations@^16.2.6", "@angular/animations@16.2.6":
   "integrity" "sha512-NHnHdZFKLr1PB8RhscjsE/DMSVHhtjCqc3bhtOiOMYfAgm4nYrSFvp6nAaT5OoMTeAWuM0n8/HvAiFweEQgVQA=="
   "resolved" "https://registry.npmjs.org/@angular/animations/-/animations-16.2.6.tgz"
   "version" "16.2.6"
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/cdk@^15.2.9":
-  "integrity" "sha512-koaM07N1AIQ5oHU27l0/FoQSSoYAwlAYwVZ4Di3bYrJsTBNCN2Xsby7wI8gZxdepMnV4Fe9si382BDBov+oO4Q=="
-  "resolved" "https://registry.npmjs.org/@angular/cdk/-/cdk-15.2.9.tgz"
-  "version" "15.2.9"
+"@angular/cdk@^16.2.5":
+  "integrity" "sha512-9VbdWSYVFQq9y7Dl8KMooE+Sa5nx0l4Neue1IMmSS2v8b602VykiYA5aqz0BsLjfoiboXlUz6LCBXxukJtogcQ=="
+  "resolved" "https://registry.npmjs.org/@angular/cdk/-/cdk-16.2.5.tgz"
+  "version" "16.2.5"
   dependencies:
     "tslib" "^2.3.0"
   optionalDependencies:
@@ -192,7 +192,7 @@
     "symbol-observable" "4.0.0"
     "yargs" "17.7.2"
 
-"@angular/common@^15.0.0 || ^16.0.0", "@angular/common@^15.2.9", "@angular/common@^16.2.6", "@angular/common@>=13.0.0", "@angular/common@16.2.6":
+"@angular/common@^16.0.0 || ^17.0.0", "@angular/common@^16.2.6", "@angular/common@>=13.0.0", "@angular/common@16.2.6":
   "integrity" "sha512-BjnahvtJHh2zXfCZjpWit+zMkggl/PrgUtPd02egzLmEKyXIMmQLYNpDZ+Pqgpb7eefU8yBPhL7WA2oKFjHjSg=="
   "resolved" "https://registry.npmjs.org/@angular/common/-/common-16.2.6.tgz"
   "version" "16.2.6"
@@ -220,7 +220,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/core@^15.0.0 || ^16.0.0", "@angular/core@^15.2.9", "@angular/core@^16.2.6", "@angular/core@>=13.0.0", "@angular/core@16.2.6":
+"@angular/core@^16.0.0 || ^17.0.0", "@angular/core@^16.2.6", "@angular/core@>=13.0.0", "@angular/core@16.2.6":
   "integrity" "sha512-F7kJbkVHLupdVQbwjjEuWp5rtxmfnL571VtqRN/8OJZAI2OjZjnSbL+FRZGEZHDmOZ2cNgPKpYt/d3nbK8hpSw=="
   "resolved" "https://registry.npmjs.org/@angular/core/-/core-16.2.6.tgz"
   "version" "16.2.6"
