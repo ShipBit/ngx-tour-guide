@@ -4,6 +4,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { ActionComponent } from './action/action.component';
 import { NgxTourGuideComponent } from './ngx-tour-guide.component';
 import { NgxTourGuideService } from './ngx-tour-guide.service';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [NgxTourGuideComponent, ActionComponent],
@@ -14,7 +15,7 @@ export class NgxTourGuideModule {
   static forRoot(): ModuleWithProviders<NgxTourGuideModule> {
     return {
       ngModule: NgxTourGuideModule,
-      providers: [NgxTourGuideService],
+      providers: [NgxTourGuideService, provideHttpClient()],
     };
   }
 }
