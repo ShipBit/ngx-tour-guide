@@ -26,7 +26,9 @@
     [style.max-width]="stop.maxWidth"
     [@stopAnimation]="stop"
   >
-    <label class="stop-title" *ngIf="stop.title"> {{ stop.title }}</label>
+    <label class="stop-title" *ngIf="stop.title">
+      {{ stop.title | shipbitRx | async }}</label
+    >
 
     <div class="stop-content">
       <ng-container *ngIf="stop.contentTemplate; else textContent">
@@ -40,8 +42,15 @@
       </ng-container>
 
       <ng-template #textContent>
-        <span class=""inner-text *ngIf="stop.useHtml" [innerHTML]="stop.content"></span>
-        <span *ngIf="!stop.useHtml">{{ stop.content }}</span>
+        <span
+          class=""
+          inner-text
+          *ngIf="stop.useHtml"
+          [innerHTML]="stop.content | shipbitRx | async"
+        ></span>
+        <span *ngIf="!stop.useHtml">{{
+          stop.content | shipbitRx | async
+        }}</span>
       </ng-template>
     </div>
 

@@ -4,9 +4,10 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { ActionComponent } from './action/action.component';
 import { NgxTourGuideComponent } from './ngx-tour-guide.component';
 import { NgxTourGuideService } from './ngx-tour-guide.service';
+import { ToObservablePipe } from './to-observable.pipe';
 
 @NgModule({
-  declarations: [NgxTourGuideComponent, ActionComponent],
+  declarations: [NgxTourGuideComponent, ActionComponent, ToObservablePipe],
   imports: [CommonModule, OverlayModule],
   exports: [NgxTourGuideComponent],
 })

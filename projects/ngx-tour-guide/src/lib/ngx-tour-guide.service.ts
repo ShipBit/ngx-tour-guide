@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
 
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  Subject,
+  firstValueFrom,
+  isObservable,
+} from 'rxjs';
 
 import {
   TourGuideActionEvent,
   TourGuideActions,
 } from './models/tour-guide-actions.model';
-import { TourGuideStop } from './models/tour-guide-stop.model';
+import { EnterExit, TourGuideStop } from './models/tour-guide-stop.model';
 import { TourGuide } from './models/tour-guide.model';
 
 /**
@@ -211,7 +217,7 @@ export class NgxTourGuideService {
   /**
    * Change the current step and emit currentStop and progress
    */
-  private goto(index: number) {
+  private async goto(index: number) {
     if (!this.tourGuide) {
       return;
     }
@@ -220,8 +226,8 @@ export class NgxTourGuideService {
     const nextStop = stops[index];
     const currentStop = this.currentStopSubject$.value;
 
-    currentStop?.onLeave && currentStop.onLeave();
-    nextStop?.onEnter && nextStop.onEnter();
+    await this.awaited(currentStop?.onLeave);
+    await this.awaited(nextStop.onEnter);
 
     this.currentStopSubject$.next(nextStop);
     this.progressSubject$.next({
@@ -230,6 +236,14 @@ export class NgxTourGuideService {
       index,
       count: stops.length,
     });
+  }
+
+  async awaited(action?: EnterExit) {
+    if (!action) return;
+    var result = action();
+    if (isObservable(result)) {
+      await firstValueFrom(result);
+    }
   }
 
   /**

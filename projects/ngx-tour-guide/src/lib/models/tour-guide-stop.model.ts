@@ -1,6 +1,8 @@
 import { TemplateRef } from '@angular/core';
 import { Observable } from 'rxjs';
 
+export type EnterExit = (() => Observable<unknown>) | (() => unknown);
+
 export type Direction = 'top' | 'right' | 'bottom' | 'left';
 export type Alignment = 'start' | 'end' | 'center';
 export type NumericMargin =
@@ -22,7 +24,7 @@ export interface TourGuideStop {
   /**
    * Content of the stop to print as message or use as implict context for a ng-template
    */
-  content: string | any;
+  content: Observable<string> | string | any;
 
   /**
    * Template ref to use instead of string content
@@ -30,14 +32,14 @@ export interface TourGuideStop {
   contentTemplate?: TemplateRef<any>;
 
   /**
-   * Uses the content as inline html, 
+   * Uses the content as inline html,
    */
   useHtml?: boolean;
 
   /**
    * Title of the step
    */
-  title?: string;
+  title?: Observable<string> | string;
 
   /**
    * Margin value to adjust the element region in px
@@ -57,12 +59,12 @@ export interface TourGuideStop {
   /**
    * Callback before entering a stop via "next" or "previous"
    */
-  onEnter?: () => void;
+  onEnter?: EnterExit;
 
   /**
    * Callback before "nexting" a stop
    */
-  onLeave?: () => void;
+  onLeave?: EnterExit;
 
   /**
    * Define an action as trigger for next step
