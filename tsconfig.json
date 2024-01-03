@@ -12,20 +12,14 @@
     "declaration": false,
     "downlevelIteration": true,
     "paths": {
-      "@shipbit/ngx-tour-guide": [
-        "dist/ngx-tour-guide/ngx-tour-guide",
-        "dist/ngx-tour-guide"
-      ]
+      "@shipbit/ngx-tour-guide": ["dist/ngx-tour-guide"]
     },
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "lib": ["es2018", "dom"],
     "useDefineForClassFields": false
   },
   "angularCompilerOptions": {

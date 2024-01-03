@@ -1,8 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Observable, isObservable, of } from 'rxjs';
+import { isObservable, of } from 'rxjs';
 
 @Pipe({
   name: 'shipbitRx',
+  standalone: true,
 })
 export class ToObservablePipe implements PipeTransform {
   transform(value: any) {

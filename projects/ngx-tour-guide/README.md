@@ -31,24 +31,15 @@ npm i --save @shipbit/ngx-tour-guide
 1. Add the module and either BrowserAnimationsModule or NoopAnimationsModule
 
 ```ts
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgxTourGuideModule } from "@shipbit/ngx-tour-guide";
-
-import { AppComponent } from "./app.component";
-
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    NgxTourGuideModule.forRoot(),
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
-})
-export class AppModule {}
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideTourGuide } from '@shipbit/ngx-tour-guide';
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideAnimationsAsync(),
+    provideTourGuide(),
+    ...
+  ]
+}
 ```
 
 2. Add the shipbit-ngx-tour-guide to your app root
@@ -89,8 +80,7 @@ export class AppComponent {
         {
           element: ".card-container",
           title: "Find resources here",
-          content:
-            "These are resources helping you to get started with angular development.",
+          content: "These are resources helping you to get started with angular development.",
         },
       ],
     });
@@ -174,12 +164,8 @@ YOu can provide content for any action button, in this case material icons
 
 ```html
 <shipbit-ngx-tour-guide>
-  <span class="material-icons md-18" ngxTourGuidePreviousContent
-    >arrow_back</span
-  >
-  <span class="material-icons md-18" ngxTourGuideNextContent
-    >arrow_forward</span
-  >
+  <span class="material-icons md-18" ngxTourGuidePreviousContent>arrow_back</span>
+  <span class="material-icons md-18" ngxTourGuideNextContent>arrow_forward</span>
   <span class="material-icons md-18" ngxTourGuideFinishContent>check</span>
   <span class="material-icons md-18" ngxTourGuideSkipContent>close</span>
 </shipbit-ngx-tour-guide>

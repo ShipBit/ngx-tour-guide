@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ShowcaseContainerComponent } from '../../showcase-container/showcase-container.component';
 
 @Component({
+  imports: [ShowcaseContainerComponent],
+  standalone: true,
   selector: 'showcase-customize-actions',
   templateUrl: './customize-actions.component.html',
-  styleUrls: ['./customize-actions.component.scss']
 })
-export class CustomizeActionsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class CustomizeActionsComponent {}

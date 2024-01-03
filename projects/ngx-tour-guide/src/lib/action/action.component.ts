@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -12,9 +13,11 @@ import {
 import { NgxTourGuideService } from '../ngx-tour-guide.service';
 
 @Component({
+  imports: [NgIf],
   selector: 'shipbit-ngx-tour-guide-action',
   templateUrl: 'action.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class ActionComponent implements OnChanges {
   public action?: TourGuideAction;

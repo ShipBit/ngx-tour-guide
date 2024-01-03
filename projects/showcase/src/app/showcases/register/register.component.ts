@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ShowcaseContainerComponent } from '../../showcase-container/showcase-container.component';
 
 @Component({
   selector: 'showcase-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  imports: [ShowcaseContainerComponent],
+  standalone: true,
 })
-export class RegisterComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class RegisterComponent {}
