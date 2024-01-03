@@ -1,16 +1,20 @@
+import { AsyncPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import {
-  Component,
-  Input,
-  OnChanges,
-  SimpleChanges,
-} from '@angular/core';
-import { catchError, NEVER, Observable, of, shareReplay } from 'rxjs';
-
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { HighlightModule } from 'ngx-highlightjs';
+import { HighlightPlusModule } from 'ngx-highlightjs/plus';
+import { NEVER, Observable, catchError, of, shareReplay } from 'rxjs';
 @Component({
   selector: 'showcase-showcase-container',
-  templateUrl: './showcase-container.component.html',
-  styleUrls: ['./showcase-container.component.scss'],
+  imports: [HighlightModule, HighlightPlusModule, AsyncPipe],
+  template: `
+    <h3>{{ label }}</h3>
+    <pre>
+      <code [highlight]="(file$ | async) || ''"> </code>
+    </pre>
+  `,
+  styleUrl: './showcase-container.component.scss',
+  standalone: true,
 })
 export class ShowcaseContainerComponent implements OnChanges {
   @Input() public label: string = '';

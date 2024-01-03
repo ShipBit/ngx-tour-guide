@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ShowcaseContainerComponent } from '../../showcase-container/showcase-container.component';
 
 @Component({
   selector: 'showcase-customize-stops',
   templateUrl: './customize-stops.component.html',
-  styleUrls: ['./customize-stops.component.scss']
+  imports: [ShowcaseContainerComponent],
+  standalone: true,
 })
-export class CustomizeStopsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class CustomizeStopsComponent {}
