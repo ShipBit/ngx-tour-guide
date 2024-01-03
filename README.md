@@ -37,24 +37,15 @@ The package uses [Angular animations](https://angular.io/guide/animations) for d
 1. Add the module and either BrowserAnimationsModule or NoopAnimationsModule
 
 ```ts
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgxTourGuideModule } from "@shipbit/ngx-tour-guide";
-
-import { AppComponent } from "./app.component";
-
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    NgxTourGuideModule.forRoot(),
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
-})
-export class AppModule {}
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideTourGuide } from '@shipbit/ngx-tour-guide';
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideAnimationsAsync(),
+    provideTourGuide(),
+    ...
+  ]
+}
 ```
 
 2. Add the shipbit-ngx-tour-guide to your app root
